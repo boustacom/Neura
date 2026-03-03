@@ -1,0 +1,53 @@
+# Neura — Configuration Apache
+# Upload sur la racine de app.boustacom.fr
+
+# Protection des fichiers sensibles
+<FilesMatch "^(config\.php|\.env|\.htaccess|setup\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher le listing des répertoires
+Options -Indexes
+
+# Protection du dossier includes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloquer l'accès direct aux includes, templates et backups
+    RewriteRule ^includes/ - [F,L]
+    RewriteRule ^templates/ - [F,L]
+    RewriteRule ^backups/ - [F,L]
+
+    # Cron : accès autorisé (sécurisé par token dans le PHP)
+    # RewriteRule ^cron/ - [F,L]
+
+    # Forcer HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # URLs propres : /app/dashboard → index.php?view=dashboard
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(dashboard|locations|reviews-all|reports|acquisition|settings|errors|client|legal|privacy|cgu)/?$ index.php?view=$1 [QSA,L]
+</IfModule>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.mapbox.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.mapbox.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.mapbox.com https://lh3.googleusercontent.com https://maps.googleapis.com; connect-src 'self' https://api.mapbox.com https://events.mapbox.com; worker-src blob:; frame-ancestors 'self'"
+</IfModule>
+
+# Cache pour les assets statiques
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 hour"
+    ExpiresByType application/javascript "access plus 1 hour"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>

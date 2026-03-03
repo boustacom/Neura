@@ -1,0 +1,34 @@
+# Fichiers sensibles (ne jamais versionner)
+config.php
+.env
+maintenance.flag
+
+# Backups
+backups/
+
+# Systeme
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE / outils
+.idea/
+.vscode/
+.claude/
+*.sublime-*
+
+# Logs
+logs/*.log
+
+# Temp / progress files
+tmp/prospect_scan_*.json
+
+# Media uploads (trop lourd)
+media/logos/*
+media/visuals/*
+media/photos/*
+!media/logos/.gitkeep
+!media/visuals/.gitkeep
+!media/photos/.gitkeep
