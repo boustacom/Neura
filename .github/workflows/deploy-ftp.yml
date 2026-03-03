@@ -1,0 +1,31 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+      - claude/review-app-PRFN0
+    paths:
+      - 'app/**'
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./app/
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
