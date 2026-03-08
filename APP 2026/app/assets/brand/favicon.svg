@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <!-- NEURA — Favicon / App Icon — Signe N seul sur fond #0A0A0A -->
+  <rect width="80" height="80" rx="16" fill="#0A0A0A"/>
+  <g transform="translate(10 0)">
+    <path d="M2 14L14 2L14 66L2 78Z" fill="#00E5FF"/>
+    <path d="M46 14L58 2L58 66L46 78Z" fill="#00E5FF"/>
+    <path d="M8 4A65 65 0 0 0 52 76" fill="none" stroke="#00E5FF" stroke-width="12" stroke-linecap="butt"/>
+  </g>
+</svg>

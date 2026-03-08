@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 80" fill="none">
+  <!--
+    NEURA — Lockup horizontal [N]eura
+    Version principale : fond dark
+    Signe N en #00E5FF — "eura" en #FFFFFF
+    Cap-height commune, ligne de base commune
+    Le N-signe EST la lettre N — jamais répété
+  -->
+  <!-- Brandmark N (cyan) -->
+  <path d="M2 14L14 2L14 66L2 78Z" fill="#00E5FF"/>
+  <path d="M46 14L58 2L58 66L46 78Z" fill="#00E5FF"/>
+  <path d="M8 4A65 65 0 0 0 52 76" stroke="#00E5FF" stroke-width="12" stroke-linecap="butt"/>
+  <!-- Wordmark "eura" — bas de casse, Inter SemiBold, tracking serré -->
+  <text x="63" y="68" fill="#FFFFFF"
+        font-family="Inter, system-ui, -apple-system, sans-serif"
+        font-size="64" font-weight="600"
+        letter-spacing="-3" style="text-rendering:geometricPrecision">eura</text>
+</svg>

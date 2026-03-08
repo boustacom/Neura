@@ -1,0 +1,24 @@
+# Environnement
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+app/logs/*.log
+
+# Temp files
+app/tmp/
+*.tmp
+
+# Media uploads (trop lourd pour Git)
+app/media/logos/
+app/media/visuals/
+app/media/photos/
+
+# Vendor / libs (déjà commités, mais au cas où)
+node_modules/
+
+# Secrets (déjà dans config.php, mais au cas où)
+.env

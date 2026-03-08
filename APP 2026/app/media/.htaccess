@@ -1,0 +1,16 @@
+# Post Visuals — Images générées
+# Accès direct aux fichiers statiques (images)
+Options -Indexes
+
+# Cache navigateur — 1 semaine pour les images
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    ExpiresByType image/webp "access plus 1 week"
+</IfModule>
+
+# Headers SEO-friendly
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
