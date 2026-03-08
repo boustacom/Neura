@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 80" fill="none">
+  <!--
+    NEURA — Brandmark N
+    Construction: grille carrée, ratio H/L 4:3
+    Deux jambages verticaux + arc de cercle (signal)
+    Terminaisons 45° — monoline strict
+    Reconstructible: règle + compas + rapporteur
+  -->
+  <!-- Jambage gauche (parallelogramme 45°) -->
+  <path d="M2 14L14 2L14 66L2 78Z" fill="#00E5FF"/>
+  <!-- Jambage droit (parallelogramme 45°) -->
+  <path d="M46 14L58 2L58 66L46 78Z" fill="#00E5FF"/>
+  <!-- Arc signal — compas, même épaisseur que jambages -->
+  <path d="M8 4A65 65 0 0 0 52 76" stroke="#00E5FF" stroke-width="12" stroke-linecap="butt"/>
+</svg>
