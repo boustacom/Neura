@@ -1,0 +1,12 @@
+# macOS metadata
+__MACOSX/
+
+# Secrets & credentials
+APP 2026/app/config.php
+APP 2026/.claude/settings.local.json
+APP 2026/app/.claude/settings.local.json
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
